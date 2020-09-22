@@ -9,11 +9,11 @@ if [ $# -eq 0 ]
 fi
 
 
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk $1
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk -w always -W always $1
   o # clear the in memory partition table
   n # new partition
   p # primary partition
-  1 # partition number 1
+  1 # partition number 1, as well as try to maintain the two newlines below to ensure it starts at the beginning of disk (vice versa for ending), if you copy-paste this, then just add two newlines down here
 
 
   p # print the in-memory partition table
