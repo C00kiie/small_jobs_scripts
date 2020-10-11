@@ -9,7 +9,7 @@
 
 declare -A hashmap
 
-for i in $(cat $i | cut -d' ' -f1);
+for i in $(cat $i | cut -d' ' -f1); # get stdin in a 1337 way
 do
 	let hashmap[$i]++;
 done
